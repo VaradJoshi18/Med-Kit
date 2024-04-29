@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blogs</title>
+  <style>
+    </style>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback' %}">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  {% include 'nav.html' %}
+  <!-- /.navbar -->
+
+<!-- Main Sidebar Container -->
+{% include 'sidebar.html' %}
+
+
+  {% include 'header.html' %}
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">View Blogs</h3>
+                  </div>
+                  <div class="card-header">
+                    <button><a href={% url 'blogs-add' %}>Add Blogs</a></button>
+                  </div>
+                  <div class="card-header" align="right">
+                    <button><a href={% url 'download-blog' %}>Download</a></button>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th style="width: 10px">Sr.no</th>
+                          <th>Image</th>
+                          <th>Title</th>
+                          <th>Details</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for data in blogs %}
+                        <tr>
+                          <td>{{ data.id }}</td>
+                          <td><img src="{{ data.image.url }}" alt="" class="prod-size" width="80" height="70"></td>
+                          <td>{{ data.title }}</td>
+                          <td>{{ data.details }}</td>
+                          {% comment %} <td> <a href="{% url 'blog-edit' data.id %}">Update</a></td> {% endcomment %}
+                          <td> <a href="{% url 'blog-delete' data.id %}" onclick="return confirm('Are you sure you want to delete this?')">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'dist/js/adminlte.min.js' %}"></script>
+</body>
+</html>

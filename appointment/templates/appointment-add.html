@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback' %}">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+    <title>Document</title>
+</head>
+<body> 
+    {% include 'sidebar.html' %}
+    {% include 'nav.html' %}
+    {% include 'header.html' %}
+    
+    <form method="POST" align = "center">
+        {% csrf_token %}
+        <table border=5 align="center" style="padding:15px;">
+            <tr>
+                <td style="padding:15px">
+                    <label class="small mb-1">First Name</label>
+                    {{ form.fname }}
+                </td>
+                <td style="padding:15px">
+                    <label class="small mb-1">Last Name</label>
+                    {{ form.lname }}
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:15px">
+                    <label class="small mb-1">Email</label>
+                    {{ form.email }}
+                </td>
+                <td style="padding:15px">
+                    <label class="small mb-1">Address</label>
+                    {{ form.address }}
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:15px">
+                    <label class="small mb-1">Request schedule time</label>
+                    {{ form.time }}
+                </td>
+                <td style="padding:15px">
+                    <label class="small mb-1">Request schedule day</label>
+                    {{ form.day }}
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:15px">
+                    <label class="small mb-1">Request</label>
+                    {{ form.request }}
+                </td>
+                <td style="padding:15px">
+                    <label class="small mb-1">Request</label>
+                    {{ form.status }}
+                </td>
+                <input name="username" type="hidden">{{ user_username }}
+            </tr>
+
+            {% comment %} <td style="padding:15px">
+                <label class="small mb-1">Request</label>
+                {{ form.doctorId }}
+            </td> {% endcomment %}
+            <tr>
+                {% comment %} <td style="padding:15px">
+                    <label class="small mb-1">Is Solved</label>
+                    {{ form.solved }}
+                </td> {% endcomment %}
+                <td style="padding:15px">
+                    <button type="submit" class="col-md-12 btn btn-dark">Add</button><br><br>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>

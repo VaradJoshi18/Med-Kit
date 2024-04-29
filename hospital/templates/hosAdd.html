@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback' %}">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+    <title>Document</title>
+</head>
+<body> 
+    {% include 'sidebar.html' %}
+    {% include 'nav.html' %}
+    {% include 'header.html' %}
+    
+    <form method="POST" align = "center">
+        {% csrf_token %}
+        <table border=5 align="center" style="padding:15px;">
+            <tr>
+                <td style="padding:15px">
+                    <label class="small mb-1">Hospital Name</label>
+                    {{ form.Name }}
+                </td>
+                <td style="padding:15px">
+                    <label class="small mb-1">Hospital Address</label>
+                    {{ form.Addr }}
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding:15px">
+                    <label class="small mb-1">Number of beds</label>
+                    {{ form.no_of_beds }}
+                </td>
+                <td style="padding:15px">
+                    <label class="small mb-1">Number of Doctors</label>
+                    {{ form.no_of_doctors }}
+                </td>
+                <td style="padding:15px">
+                    <label class="small mb-1">Number of Staffs</label>
+                    {{ form.no_of_staff }}
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding:15px">
+                    <label class="small mb-1">City</label>
+                    {{ form.city }}
+                </td>
+                <td style="padding:15px">
+                    <label class="small mb-1">State</label>
+                    {{ form.state }}
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding:15px">
+                    <label class="small mb-1">Phone</label>
+                    {{ form.phone }}
+                </td>
+                <td style="padding:15px">
+                    <label class="small mb-1">Email</label>
+                    {{ form.email }}
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="padding:15px">
+                    <button type="submit" class="col-md-12 btn btn-dark">Add</button><br><br>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>

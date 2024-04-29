@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %} Login Home Page {% endblock title%}
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4"><center>Welcome to Medic-Kit</center></h1>
+        <p class="lead">
+            <center>Log into your role!</center>
+        </p>
+        <hr class="my-4">
+        <p class="lead">
+            <center><a class="btn btn-primary btn-lg" href="/reg/loginuser/" role="button">Sign In as User</a>
+            <a class="btn btn-primary btn-lg" href="/reg/logindoctor/" role="button">Sign In as Doctor</a>
+            <a class="btn btn-primary btn-lg" href="/reg/loginpharma/" role="button">Sign In as Pharmacist</a></center> 
+        </p>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% comment %} {% extends '../products/layouts/main.html' %} {% endcomment %}
+
+{% block content %}
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback' %}">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+    <title>Document</title>
+</head>
+<body> 
+    {% include 'sidebar.html' %}
+    {% include 'nav.html' %}
+    {% include 'header.html' %}
+    
+    <form method="POST" align = "center" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table border=5 align="center" style="padding:15px;">
+            <tr>
+                <td style="padding:15px">
+                    <label class="small mb-1">image</label>
+                    <input type="file" Required name="image">{{ form.image }}</input>
+                </td>
+                <td style="padding:15px">
+                    <label class="small mb-1">Title</label>
+                    <input type="text" Required name="title">{{ form.title }}</input>
+                </td>
+                <td style="padding:15px">
+                    <label class="small mb-1">Details</label>
+                    <input type="text" Required name="details">{{ form.details }}</input>
+                </td>
+            </tr>
+        
+            <tr>
+                <td style="padding:15px">
+                    <button type="submit" class="col-md-12 btn btn-dark">Add</button><br><br>
+                </td>
+            </tr>
+        </table>
+    </form>
+    {% endblock content %}
+</body>
+</html>

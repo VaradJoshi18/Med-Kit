@@ -1,0 +1,1 @@
+from .medhistory_view import *

@@ -1,0 +1,58 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <script src="{% static 'script/new.js' %}">    </script>
+        <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            var webcam;
+            function videocamera()  
+            {
+            const webcamElement = document.getElementById('webcam');
+            const canvasElement = document.getElementById('canvas');
+            const snapSoundElement = document.getElementById('snapSound');  
+            webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement);
+            webcam.start()
+            .then(result =>{
+               console.log("webcam started");
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        
+            }
+            
+            function snapshot(){
+                let picture = webcam.snap();
+                document.querySelector('#photo').href = picture;
+                var href1="{% url 'download' 12345 %}".replace(/12345/,picture.toString());
+                document.querySelector('#downloadimg').href = href1;
+                $("#dataimg").val(picture);
+            }
+        </script>
+        <style>
+            .my-class{
+                display:none
+            }
+        </style>
+    </head>
+    <body onload="videocamera()">
+        <video id="webcam" autoplay playsinline width="640" height="480"></video>
+        <canvas id="canvas" class="d-none"></canvas>
+        <audio id="snapSound" src="audio/snap.wav" preload = "auto"></audio>
+        <button onclick="snapshot()">Click</button>
+
+        <div class ="my-class">
+            <a id="photo">Download</a>
+            <a id="downloadimg">Download1</a>
+        </div>
+
+        <form  action="{% url 'download_image' %}" method="POST">
+            {% csrf_token %}
+            <div class ="my-class">
+                <input type="text" name="dataimg" id="dataimg" />
+            </div>
+            <input type="submit" value="login" />
+        </form>
+    </body>
+</html>

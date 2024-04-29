@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BMI</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback' %}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- Ekko Lightbox -->
+  {% comment %} <link rel="stylesheet" href="{% static 'plugins/ekko-lightbox/ekko-lightbox.css' %}"> {% endcomment %}
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+  <!-- overlayScrollbars -->
+  {% comment %} <link rel="stylesheet" href="{% static 'plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">  {% endcomment %}
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    {%include 'user-profile-sidebar.html' %}
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Profile</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item">Home</li>
+              <li class="breadcrumb-item active">User Profile</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  {% for data in data %}
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="{{ data.image.url }}"
+                       alt="User profile picture">
+                  {% endfor %}
+                </div>
+
+                <h3 class="profile-username text-center">{{ username }}</h3>
+                {% comment %} <a href="{% url 'user-profile-appointment-add' %}" class="btn btn-primary btn-block"><b>Add Appointment</b></a> {% endcomment %}
+
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">View BMI</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Age</th>
+                      <th>Gender</th>
+                      <th>Weight</th>
+                      <th>Height</th>
+                      <th>BMI</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for data in user_bmi %}
+                      <tr>
+                          <td>{{ data.age }}</td>
+                          <td>{{ data.gender }}</td>
+                          <td>{{ data.user_weight }}</td>
+                          <td>{{ data.user_height }}</td>
+                          <td>{{ data.user_bmi }}</td>
+                          {% comment %} <td><a href="{% url 'delete-appointment' data.id %}" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-primary btn-block"><b>Delete</b></a></td> {% endcomment %}
+                      </tr>
+                      {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {% comment %} <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">View IDEAL BMI</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Age range</th>
+                        <th>Gender</th>
+                        <th>Ideal Weight</th>
+                        <th>Ideal Height</th>
+                        <th>Ideal BMI</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for data in user_ideal_bmi %}
+                        <tr>
+                          <td>{{ data.age_range }}</td>
+                          <td>{{ data.gender }}</td>
+                          <td>{{ data.ideal_weight }}</td>
+                          <td>{{ data.ideal_height }}</td>
+                          <td>{{ data.ideal_bmi }}</td>
+                          {% comment %} <td> <a href="{% url 'ideal-bmi-delete' data.id %}" onclick="return confirm('Are you sure you want to delete this?')"> delete </a> </td> {% endcomment %}
+                          {% comment %} <td> <a href="{% url 'ideal-bmi-edit' data.id %}"> edit </a> </td> {% endcomment %}
+                        {% comment %} </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div> {% endcomment %}
+
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<!-- Bootstrap -->
+<script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Ekko Lightbox -->
+<script src="{% static 'plugins/ekko-lightbox/ekko-lightbox.min.js' %}"></script>
+<!-- overlayScrollbars -->
+<script src="{% static 'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'dist/js/adminlte.min.js' %}"></script>
+<!-- Filterizr-->
+<script src="{% static 'plugins/filterizr/jquery.filterizr.min.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+{% comment %} <script src="{% static 'dist/js/demo.js' %}"></script> {% endcomment %}
+</body>
+</html>

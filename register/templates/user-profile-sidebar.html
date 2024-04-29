@@ -1,0 +1,77 @@
+  <!-- Main Sidebar Container -->
+  <div class="sidebar">
+
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        {% for data in data %}
+        <img src="{{data.image.url}}" class="img-circle elevation-2" alt="User Image">
+        {% endfor %}
+      </div>
+      <div class="info">
+        <a href="#" class="d-block">{{username}}</a>
+      </div>
+    </div>
+    
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+             <li class="nav-item">
+              <a href="{% url 'index' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+              <p>Home</p>
+            </a>
+          </li>
+             <li class="nav-item">
+            <a href="{% url 'user-profile' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+            <p>View Profile</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'user-chat-view' %}" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+          <p>Chat</p>
+        </a>
+      </li>
+        <li class="nav-item">
+          <a href="{% url 'view-time' %}" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+          <p>Timeline</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'user-bmi-view' %}" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+          <p>BMI</p>
+        </a>
+      </li>
+        <li class="nav-item">
+          <a href="{% url 'user-todoList-view' %}" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>To-do List</p>
+          </a>
+        </li>
+            <li class="nav-item">
+              <a href="{% url 'user-appointment-view' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Fix Appointments</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'user-side-doctor-view' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>View Doctors</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'logout' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+              <p>Logout</p>
+            </a>
+          </li>
+            
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>

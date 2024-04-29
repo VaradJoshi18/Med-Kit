@@ -1,0 +1,159 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          {% for data in data %}
+          <img src="{{data.image.url}}" class="img-circle elevation-2" alt="User Image">
+          {% endfor %}
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">{{username}}</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item">
+            <a href="{% url 'appointment-view' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Appointment</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'blogs-view' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Blogs</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'view-chat' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Chat</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'view-contact' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Contact</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'disease-view' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Diseases List</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'view-doc' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+                <p>Doctors</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'medicine-view' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+                <p>Medicine</p>
+            </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a href="{% url 'view-feedback' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Feedback</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'view-hos' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Hospital</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'ideal-bmi-view' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Ideal BMI</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'medhistory-view' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Medical History</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'news-view' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>News</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'view-pharma' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Pharmacists</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'prescription-view' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Prescription</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'treatment-view' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Remedies</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'view-admin-time' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Timelines</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'todolist-view' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>To-do List</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'bmi-view' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>User BMI</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'view-user' %}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Users</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>

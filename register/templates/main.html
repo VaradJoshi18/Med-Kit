@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %} Registration Home Page {% endblock title%}
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4"><center>Welcome to Medic-Kit</center></h1>
+        <p class="lead">
+            <center>Choose your role!</center>
+        </p>
+        <hr class="my-4">
+        <p class="lead">
+            <center><a class="btn btn-primary btn-lg" href="/reg/register/" role="button">Sign Up as User</a>
+            <a class="btn btn-primary btn-lg" href="/reg/registerDoctor/" role="button">Sign Up as Doctor</a>
+            <a class="btn btn-primary btn-lg" href="/reg/registerPharma/" role="button">Sign Up as Pharmacist</a></center>
+        </p>
+    </div>
+
+{% endblock content %}
